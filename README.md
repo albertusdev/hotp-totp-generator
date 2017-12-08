@@ -1,4 +1,4 @@
-## OTP Generator
+## HOTP-TOTP-Generator
 A HMAC-based OTP (HOTP) and Time-based OTP (TOTP) that generates OTP tokens from OTP key with customizable hash algorithm.
 
 *Installation*

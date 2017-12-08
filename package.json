@@ -1,5 +1,5 @@
 {
-  "name": "otp-generator",
+  "name": "hotp-totp-generator",
   "version": "1.0.0",
   "description": "A HMAC-based OTP (HOTP) and Time-based OTP (TOTP) that generates OTP tokens from OTP key with customizable hash algorithm.",
   "main": "index.js",
