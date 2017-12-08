@@ -1,0 +1,29 @@
+{
+  "name": "otp-generator",
+  "version": "1.0.0",
+  "description": "A HMAC-based OTP (HOTP) and Time-based OTP (TOTP) that generates OTP tokens from OTP key with customizable hash algorithm.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adalberht/otp-generator.git"
+  },
+  "keywords": [
+    "otp",
+    "hotp",
+    "totp",
+    "hmac"
+  ],
+  "author": "Albertus Angga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adalberht/otp-generator/issues"
+  },
+  "homepage": "https://github.com/adalberht/otp-generator#readme",
+  "dependencies": {
+    "moment": "^2.19.3",
+    "pad-component": "0.0.1"
+  }
+}
