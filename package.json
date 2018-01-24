@@ -1,6 +1,6 @@
 {
   "name": "hotp-totp-generator",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A highly customizable implementation of HMAC-based OTP (HOTP) and Time-based OTP (TOTP).",
   "main": "index.js",
   "scripts": {
