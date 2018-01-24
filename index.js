@@ -8,7 +8,7 @@ var moment = require('moment');
 var pad = require('pad-component');
 var crypto = require('crypto');
 
-const DEFAULT_CRYPTO_ALGORITHM = 'sha512';
+const DEFAULT_CRYPTO_ALGORITHM = 'sha1';
 const DEFAULT_T0 = 0;
 const DEFAULT_X = 30;
 const DEFAULT_DIGITS = 6;
@@ -37,7 +37,7 @@ function toBuffer(arg) {
  * @enum
  * @value {'sha512'} SHA-512
  * @value {'sha256'} SHA-256
- * @value {'sha1} SHA-1
+ * @value {'sha1'} SHA-1
  */
 
 /**
@@ -45,7 +45,7 @@ function toBuffer(arg) {
  *
  * @param {string} key Unique shared secret key for encrypting C values for HMAC algorithm
  * @param {string} counter 8-bytes incrementing counter value
- * @param {HashAlgorithm} [algorithm=sha512] HMAC Algorithm, is one of 'sha1', 'sha256' and 'sha512'
+ * @param {HashAlgorithm} [algorithm=sha1] HMAC Algorithm, is one of 'sha1', 'sha256' and 'sha512'
  * @param {number} digits Return digits of HOTP value, according to RFC4226 spec, it should be at least 6 digitss.
  * @returns {number}
  *
@@ -72,6 +72,7 @@ function hotp({
  * @param {number} T T is epoch time (Unix time), if not given default to current Unix time
  * @param {number} T0 The Unix time to start counting time steps,
  * @param {number} X The time step in seconds
+ * @param {HashAlgorithm} [algorithm=sha1] HMAC Algorithm, is one of 'sha1', 'sha256' and 'sha512'
  * @param {number} digits The number of digits to return
  */
 function totp({
@@ -79,10 +80,11 @@ function totp({
   T, // T is epoch time (Unix time), if not given compute current Unix time
   T0 = DEFAULT_T0, // the Unix time to start counting time steps
   X = DEFAULT_X, // Number of steps according to TOTP
+  algorithm = DEFAULT_CRYPTO_ALGORITHM,
   digits = DEFAULT_DIGITS
 }) {
   const counter = Math.floor(((!T ? moment().unix() : T) - T0) / X);
-  return hotp({ key, counter, digits });
+  return hotp({ key, counter, algorithm, digits });
 }
 
 /**
@@ -93,10 +95,8 @@ function totp({
  * @returns {string} Numerical string in base 10 of the truncated hex strings
  */
 function truncate(s, digits) {
-  // Offset
   var offset = parseInt(s.charAt(s.length - 1), 16);
 
-  // result
   var result = parseInt(s.substr(offset * 2, 2 * 4), 16);
 
   // Get only last 31 bits of result
