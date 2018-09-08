@@ -4,11 +4,11 @@
   TOTP: https://tools.ietf.org/html/rfc6238
 */
 
-var moment = require('moment');
-var pad = require('pad-component');
-var crypto = require('crypto');
+var moment = require("moment");
+var pad = require("pad-component");
+var crypto = require("crypto");
 
-const DEFAULT_CRYPTO_ALGORITHM = 'sha1';
+const DEFAULT_CRYPTO_ALGORITHM = "sha1";
 const DEFAULT_T0 = 0;
 const DEFAULT_X = 30;
 const DEFAULT_DIGITS = 6;
@@ -44,7 +44,7 @@ function toBuffer(arg) {
  * HOTP Algorithm implementation
  *
  * @param {string} key Unique shared secret key for encrypting C values for HMAC algorithm
- * @param {string} counter 8-bytes incrementing counter value
+ * @param {number} counter 8-bytes incrementing counter value
  * @param {HashAlgorithm} [algorithm=sha1] HMAC Algorithm, is one of 'sha1', 'sha256' and 'sha512'
  * @param {number} digits Return digits of HOTP value, according to RFC4226 spec, it should be at least 6 digitss.
  * @returns {number}
@@ -61,7 +61,7 @@ function hotp({
   const hash = crypto
     .createHmac(algorithm, keyBytes)
     .update(counterBytes)
-    .digest('hex');
+    .digest("hex");
   return truncate(hash, digits);
 }
 
@@ -102,7 +102,7 @@ function truncate(s, digits) {
   // Get only last 31 bits of result
   result = result & 0x7fffffff;
 
-  return pad(String(result), digits, '0');
+  return pad(String(result), digits, "0");
 }
 
 module.exports = {
@@ -114,4 +114,4 @@ module.exports = {
   DEFAULT_DIGITS,
   DEFAULT_T0,
   DEFAULT_X
-}
+};
