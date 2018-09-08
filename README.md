@@ -1,4 +1,8 @@
 # HOTP-TOTP-Generator
+[![Version](https://img.shields.io/npm/v/hotp-totp-generator.svg)](https://www.npmjs.com/package/hotp-totp-generator)
+[![Downloads/week](https://img.shields.io/npm/dw/hotp-totp-generator.svg)](https://www.npmjs.com/package/hotp-totp-generator)
+[![License](https://img.shields.io/npm/l/hotp-totp-generator.svg)](https://github.com/adalberht/hotp-totp-generator/blob/master/package.json)
+
 A highly customizable implementation of HMAC-based OTP (HOTP) and Time-based OTP (TOTP).
 - [HOTP](https://tools.ietf.org/html/rfc4226)
 - [TOTP](https://tools.ietf.org/html/rfc6238)
@@ -88,6 +92,6 @@ If you are interested on contributing, you can check out several things todo in 
 
 ## TODO
 - Make CLI tool
-- Add code coverage status
-- Add npm status
 - Add unit tests
+- Add code coverage status
+
