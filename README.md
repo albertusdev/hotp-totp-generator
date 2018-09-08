@@ -87,7 +87,7 @@ Any contribution for this library would be very appreciated! Please open an issu
 If you are interested on contributing, you can check out several things todo in the [TODO](#todo) section below:
 
 ## TODO
-[] Make CLI tool
-[] Add code coverage status
-[] Add npm status
-[] Add unit tests
+- Make CLI tool
+- Add code coverage status
+- Add npm status
+- Add unit tests
