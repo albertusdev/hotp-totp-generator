@@ -22,11 +22,12 @@ If something doens't work, please [file an issue](https://github.com/adalberht/h
 ## Docs
 ### HOTP Implementation
 For HMAC-based One Time Password (HOTP), parameter is an **object** consisting of:
+
 Key Name        | Type                                  | Default   | Value Description
 ---------       | ---------                             | -------   | -----------------
 `key`           | `string`                              |   -       | Unique shared secret key for encrypting C values for HMAC algorithm
 `counter`       | `number`                              |   -       | 8-bytes incrementing counter value
-`algorithm`     | `enum: 'sha1' | 'sha256' | 'sha512'`  | `'sha1'`  | HMAC Algorithm used for encrypting the counter
+`algorithm`     | `enum: 'sha1' \| 'sha256' \| 'sha512'`  | `'sha1'`  | HMAC Algorithm used for encrypting the counter
 `digits`        | `number`                              |   6       | Return digits of HOTP value
 
 ### Example:
@@ -51,13 +52,14 @@ hotpTotpGenerator.hotp({
 
 ### TOTP Implementation
 For Time-based One Time Password (TOTP), parameter is an **object** consisting of:
+
 Key Name        | Type                                  | Default   | Value Description
 ---------       | ---------                             | -------   | -----------------
 `key`           | `string`                              |   -       | Unique shared secret key for encrypting epoch time for HMAC algorithm
 `T`             | `number`                              | current unix time       | [Epoch time (Unix time)](https://en.wikipedia.org/wiki/Unix_time)
 `T0` | `number` | 0 | The Unix time to start counting time steps
 `X`  | `number` | 30 | The time step in seconds
-`algorithm`     | `enum: 'sha1' | 'sha256' | 'sha512'`  | `'sha1'`  | HMAC Algorithm used for encrypting the counter
+`algorithm`     | `enum: 'sha1' \| 'sha256' \| 'sha512'`  | `'sha1'`  | HMAC Algorithm used for encrypting the unix time
 `digits`        | `number`                              |   6       | Return digits of HOTP value
 
 ### Example:
