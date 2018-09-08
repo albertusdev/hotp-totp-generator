@@ -7,14 +7,14 @@ A highly customizable implementation of HMAC-based OTP (HOTP) and Time-based OTP
 - [HOTP](https://tools.ietf.org/html/rfc4226)
 - [TOTP](https://tools.ietf.org/html/rfc6238)
 
-If something doens't work, please [file an issue](https://github.com/adalberht/hotp-totp-generator/issues)
+If something doesn't work, please [file an issue](https://github.com/adalberht/hotp-totp-generator/issues)
 
 ## Installation
 - npm install hotp-totp-generator --save
 
 ## Sample Usage:
 ```
-  var hotpOtpGenerator = require('hotp-otp-generator')
+  const hotpOtpGenerator = require('hotp-otp-generator')
 
   // Example of HOTP
   const hotpToken = hotpOtpGenerator.hotp({ key: '12345678901234567890', counter: 100 });
@@ -87,8 +87,8 @@ hotpTotpGenerator.totp({
 ```
 
 ## Contributing
-Any contribution for this library would be very appreciated! Please open an issue / pull requests!
-If you are interested on contributing, you can check out several things todo in the [TODO](#todo) section below:
+Any contribution for this library will be very appreciated! Feel free to open issues / pull requests!
+If you are interested on contributing, you can check out several things todo in the [TODO](#todo) section below.
 
 ## TODO
 - Make CLI tool
